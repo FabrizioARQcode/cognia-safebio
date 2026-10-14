@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>CognIA — AI, Memory & Learning</title>
+<style>
+:root{--bg:#0b1120;--panel:#111b2e;--panel2:#17243a;--line:#2a3952;--text:#edf3ff;--muted:#a9b7cc;--accent:#8be0c1;--accent2:#9fb8ff;--warn:#ffd28a;--danger:#ffaaa8;--radius:20px}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#1b3150 0%,transparent 38%),var(--bg);color:var(--text);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+button,input{font:inherit}button{cursor:pointer}.shell{max-width:1080px;margin:auto;padding:24px 20px 64px}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:54px}.brand{display:flex;gap:12px;align-items:center;font-weight:800;letter-spacing:-.03em;font-size:1.2rem}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#8be0c1,#9fb8ff);color:#0b1120;font-weight:900}.tag{border:1px solid var(--line);color:var(--muted);border-radius:99px;padding:7px 12px;font-size:.8rem}
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center;margin-bottom:42px}.eyebrow{color:var(--accent);font-size:.8rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.hero h1{font-size:clamp(2.5rem,6vw,4.7rem);line-height:1.03;letter-spacing:-.06em;margin:14px 0 22px}.hero p{font-size:1.08rem;color:var(--muted);max-width:650px}.visual{border:1px solid var(--line);background:linear-gradient(145deg,#182840,#101827);border-radius:28px;padding:24px;min-height:280px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.orb{position:absolute;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#b7f7dc,#719aff 65%,transparent 70%);filter:blur(1px);right:-35px;top:-30px;opacity:.85}.visual-label{position:relative;z-index:1;color:var(--muted);font-size:.85rem}.visual h3{position:relative;z-index:1;font-size:1.8rem;line-height:1.15;max-width:240px;letter-spacing:-.04em}.mini-bars{display:flex;align-items:end;gap:8px;height:70px;position:relative;z-index:1}.mini-bars i{display:block;flex:1;border-radius:8px 8px 3px 3px;background:linear-gradient(180deg,var(--accent),var(--accent2));opacity:.85}.mini-bars i:nth-child(1){height:35%}.mini-bars i:nth-child(2){height:65%}.mini-bars i:nth-child(3){height:48%}.mini-bars i:nth-child(4){height:90%}.mini-bars i:nth-child(5){height:72%}.mini-bars i:nth-child(6){height:100%}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}.tile,.card{border:1px solid var(--line);background:rgba(17,27,46,.86);border-radius:var(--radius);padding:22px}.tile .num{color:var(--accent);font-weight:900;font-size:.8rem;letter-spacing:.1em}.tile h3{margin:12px 0 7px}.tile p{margin:0;color:var(--muted);font-size:.94rem}.section{margin-top:42px}.section h2{font-size:1.8rem;letter-spacing:-.04em;margin:0 0 12px}.muted{color:var(--muted)}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.btn{border:0;border-radius:12px;padding:13px 19px;font-weight:800;background:var(--accent);color:#0a1420;transition:transform .15s,opacity .15s}.btn:hover{transform:translateY(-1px)}.btn.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}.btn.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}.note{border-left:3px solid var(--warn);background:#2a251c;padding:14px 16px;border-radius:0 12px 12px 0;color:#f4dfbd;font-size:.92rem}.privacy{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:.9rem;margin-top:18px}.privacy b{color:var(--text)}.screen{display:none;max-width:760px;margin:0 auto}.screen.active{display:block}.progress-wrap{margin-bottom:24px}.progress-meta{display:flex;justify-content:space-between;color:var(--muted);font-size:.85rem;margin-bottom:8px}.progress{height:6px;border-radius:99px;background:var(--line);overflow:hidden}.progress span{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}.question{font-size:1.45rem;line-height:1.3;letter-spacing:-.03em;margin:10px 0 20px}.option{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0;background:#101a2b;cursor:pointer}.option:hover{border-color:#6d88b7}.option input{margin-top:5px;accent-color:#8be0c1}.option:has(input:checked){border-color:var(--accent);background:#172c35}.wordbank{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.word{background:#20314b;border:1px solid #344968;border-radius:10px;padding:8px 12px;font-weight:700}.passage{background:#0e1727;border:1px solid var(--line);border-radius:16px;padding:20px;color:#d7e3f5}.passage p:first-child{margin-top:0}.passage p:last-child{margin-bottom:0}.field{width:100%;background:#0e1727;color:var(--text);border:1px solid var(--line);padding:14px;border-radius:12px;outline:none}.field:focus{border-color:var(--accent)}.small{font-size:.86rem;color:var(--muted)}.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:24px 0}.score{font-size:2.1rem;letter-spacing:-.06em;font-weight:900}.meter{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin:10px 0}.meter span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}.result-card{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:18px}.footer{border-top:1px solid var(--line);padding-top:22px;margin-top:50px;color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.hidden{display:none!important}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.visual{min-height:210px}.grid{grid-template-columns:1fr}.top{margin-bottom:34px}.result-grid{grid-template-columns:1fr}.shell{padding:18px 15px 44px}.hero h1{font-size:3rem}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="top">
+  <div class="brand"><div class="logo">C</div><span>CognIA</span></div>
+  <span class="tag">Research prototype · v0.1</span>
+</header>
+
+<main>
+<section id="home" class="active">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">AI · Memory · Learning</div>
+      <h1>Does AI help you learn—or learn for you?</h1>
+      <p>An interactive experience exploring how different ways of studying may relate to recall, comprehension, and critical thinking.</p>
+      <div class="row" style="margin-top:25px"><button class="btn" id="startBtn">Start assessment <span aria-hidden="true">→</span></button><span class="small">8–12 minutes · No account required</span></div>
+      <div class="privacy"><span aria-hidden="true">◈</span><span><b>Privacy by design.</b> In this demo, your answers are processed in your browser. They are not sent to a server or saved automatically.</span></div>
+    </div>
+    <div class="visual"><div class="orb"></div><div class="visual-label">EXPLORE HOW YOU LEARN</div><h3>Measure. Compare. Understand.</h3><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+  </div>
+  <div class="grid">
+    <article class="tile"><div class="num">01 / MEMORY</div><h3>Recall without assistance</h3><p>A short task involving memory and information recall.</p></article>
+    <article class="tile"><div class="num">02 / LEARNING</div><h3>Understand a topic</h3><p>Read a short passage and answer questions without consulting other sources.</p></article>
+    <article class="tile"><div class="num">03 / CRITICAL THINKING</div><h3>Evaluate the evidence</h3><p>Explore how you reason about claims that require careful evaluation.</p></article>
+  </div>
+  <div class="section">
+    <h2>What is this tool—and what is it not?</h2>
+    <div class="note"><b>Important:</b> CognIA is an educational and research prototype. It is not a clinical test, does not diagnose cognitive impairment, and cannot attribute cognitive changes to AI use.</div>
+    <p class="muted">The results describe your performance on these specific tasks. Scientific conclusions about the effects of AI require a validated protocol, an adequate sample, and controlled experimental conditions.</p>
+  </div>
+</section>
+
+<section id="consent" class="screen">
+  <div class="progress-wrap"><div class="progress-meta"><span>Before you begin</span><span>1 of 5</span></div><div class="progress"><span style="width:20%"></span></div></div>
+  <div class="eyebrow">Voluntary participation</div><h2>Before you begin</h2>
+  <p class="muted">This demonstration contains brief memory, comprehension, and critical-thinking exercises. You may leave at any time.</p>
+  <div class="card">
+    <p><b>What you will do</b></p><ul><li>Remember a few words.</li><li>Study a short explanation.</li><li>Answer questions without assistance.</li><li>Answer questions about your AI-use habits.</li></ul>
+    <p><b>What data is collected</b></p><p class="muted">In this version, answers remain in the current browser session. They are not sent to a server or stored persistently. You can export a CSV file at the end.</p>
+    <label class="option"><input type="checkbox" id="agree"><span>I understand that this is a non-clinical demonstration and voluntarily agree to continue.</span></label>
+  </div>
+  <div class="row" style="margin-top:20px"><button class="btn" id="consentNext" disabled>Continue</button><button class="btn secondary" data-go="home">Back</button></div>
+</section>
+
+<section id="memory" class="screen">
+  <div class="progress-wrap"><div class="progress-meta"><span>Immediate memory</span><span>2 of 5</span></div><div class="progress"><span style="width:40%"></span></div></div>
+  <div class="eyebrow">Exercise 1 · Memory</div><h2>Remember these words</h2>
+  <p class="muted">Study the list for 20 seconds. It will then disappear, and you will be asked to recall as many words as you can.</p>
+  <div id="wordStage" class="card"><div class="wordbank" id="words"><span class="word">bridge</span><span class="word">orange</span><span class="word">clock</span><span class="word">forest</span><span class="word">coin</span><span class="word">window</span><span class="word">tiger</span><span class="word">notebook</span></div><div class="row"><span class="small" id="countdown">20 seconds</span><button class="btn" id="hideWords">I’m ready</button></div></div>
+  <div id="recallStage" class="card hidden"><p>Enter the words you remember, separated by commas.</p><textarea class="field" id="recallInput" rows="4" placeholder="Ej.: bridge, forest, ..."></textarea><p class="small">The order does not matter. Do not return to the list.</p><button class="btn" id="memoryNext">Continue</button></div>
+</section>
+
+<section id="learning" class="screen">
+  <div class="progress-wrap"><div class="progress-meta"><span>Comprehension and learning</span><span>3 of 5</span></div><div class="progress"><span style="width:60%"></span></div></div>
+  <div class="eyebrow">Exercise 2 · Learning</div><h2>Learn a new idea</h2>
+  <p class="muted">This demo uses a standard explanation. A research version could compare equivalent materials under randomly assigned conditions.</p>
+  <div class="passage"><h3>Why space out learning?</h3><p>Spaced practice means distributing study across multiple sessions over time instead of concentrating it in a single session. Returning to an idea after an interval requires a person to reconstruct some of the information, which may strengthen their ability to recall it later.</p><p>Active recall complements this strategy: instead of rereading passively, we try to retrieve information from memory—for example, by answering questions without looking at our notes. Errors can also be useful when we receive feedback that helps us correct them.</p><p>These strategies do not guarantee the same results for everyone or for every task. Their effectiveness depends, among other factors, on the type of content, prior knowledge, difficulty, and the time between sessions.</p></div>
+  <div class="row" style="margin-top:20px"><button class="btn" id="learningNext">I’ve finished reading — continue →</button></div>
+</section>
+
+<section id="quiz" class="screen">
+  <div class="progress-wrap"><div class="progress-meta"><span>Learning check</span><span>4 of 5</span></div><div class="progress"><span style="width:80%"></span></div></div>
+  <div class="eyebrow">Exercise 3 · Comprehension</div><h2>Answer without returning to the passage</h2>
+  <form id="quizForm">
+    <div class="card">
+      <p class="question">1. What characterizes spaced practice?</p>
+      <label class="option"><input type="radio" name="q1" value="a"><span>Studying all the content at once.</span></label>
+      <label class="option"><input type="radio" name="q1" value="b"><span>Distributing study across separate sessions over time.</span></label>
+      <label class="option"><input type="radio" name="q1" value="c"><span>Avoiding topics that have already been read.</span></label>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <p class="question">2. Which is an example of active recall?</p>
+      <label class="option"><input type="radio" name="q2" value="a"><span>Rereading several times without pausing to think.</span></label>
+      <label class="option"><input type="radio" name="q2" value="b"><span>Copying the text word for word.</span></label>
+      <label class="option"><input type="radio" name="q2" value="c"><span>Answering questions without looking at notes.</span></label>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <p class="question">3. Which statement best reflects the passage?</p>
+      <label class="option"><input type="radio" name="q3" value="a"><span>These techniques guarantee better results for everyone.</span></label>
+      <label class="option"><input type="radio" name="q3" value="b"><span>Results may vary depending on the task and the person.</span></label>
+      <label class="option"><input type="radio" name="q3" value="c"><span>Feedback is useless if we make mistakes.</span></label>
+    </div>
+    <div class="row" style="margin-top:20px"><button class="btn" type="submit">Check answers →</button></div>
+  </form>
+</section>
+
+<section id="critical" class="screen">
+  <div class="progress-wrap"><div class="progress-meta"><span>Critical thinking and habits</span><span id="criticalCounter">Question 1 of 3</span></div><div class="progress"><span id="criticalProgress" style="width:80%"></span></div></div>
+  <div class="eyebrow">Final exercise</div><h2 id="criticalTitle">Evaluate the evidence</h2>
+  <p class="muted" id="criticalIntro">Answer one question at a time. The page will move to the next question after you choose an answer.</p>
+  <div id="criticalQuestionHost"></div>
+  <div class="row" style="margin-top:20px"><button class="btn" id="criticalNext" disabled>Next →</button><button class="btn secondary" id="criticalBack" type="button">Return to home</button></div>
+</section>
+
+<section id="results" class="screen">
+  <div class="eyebrow">Session report</div><h2>Your performance in this demonstration</h2>
+  <p class="muted">These indicators summarize your responses to this session’s tasks. They are not population percentiles, impairment percentages, or a clinical assessment.</p>
+  <div class="result-grid" id="resultGrid"></div>
+  <div class="card"><h3>What you can try to learn more effectively</h3><ul><li><b>Active recall:</b> close your notes and explain the topic in your own words.</li><li><b>Spaced practice:</b> revisit the material the next day and again a week later.</li><li><b>Use AI as a tutor:</b> ask for hints and questions before requesting a complete answer.</li><li><b>Verify claims:</b> ask for sources, compare evidence, and look for alternative explanations.</li><li><b>Practice without assistance:</b> set aside part of each study session to solve problems on your own.</li></ul></div>
+  <div class="note" style="margin-top:16px"><b>Scientific limitation:</b> a single session cannot determine whether AI caused a change in your memory or learning. Controlled comparisons and follow-up are needed to investigate that question.</div>
+  <div class="row" style="margin-top:20px"><button class="btn" id="downloadBtn">Export my results (CSV)</button><button class="btn secondary" id="restartBtn">Restart assessment</button></div>
+</section>
+</main>
+<footer class="footer"><span>© CognIA · Conceptual research prototype</span><span>Demo version · No clinical diagnosis</span></footer>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+const screens=['home','consent','memory','learning','quiz','critical','results'];
+const state={memoryScore:0,learningScore:0,criticalScore:0,usage:null,independence:null,startedAt:null,condition:'material_estandar'};
+function show(id){screens.forEach(s=>$('#'+s).classList.toggle('active',s===id));window.scrollTo({top:0,behavior:'smooth'})}
+$('#startBtn').addEventListener('click',()=>show('consent'));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.go)));
+$('#agree').addEventListener('change',e=>$('#consentNext').disabled=!e.target.checked);
+$('#consentNext').addEventListener('click',()=>{state.startedAt=new Date().toISOString();show('memory');startCountdown()});
+let timer=null;
+function startCountdown(){let n=20;$('#countdown').textContent=n+' seconds';timer=setInterval(()=>{n--;$('#countdown').textContent=n+' seconds';if(n<=0){clearInterval(timer);hideWordList()}},1000)}
+function hideWordList(){clearInterval(timer);$('#words').classList.add('hidden');$('#countdown').textContent='List hidden';$('#hideWords').classList.add('hidden');$('#recallStage').classList.remove('hidden')}
+$('#hideWords').addEventListener('click',hideWordList);
+const targetWords=['bridge','orange','clock','forest','coin','window','tiger','notebook'];
+$('#memoryNext').addEventListener('click',()=>{const got=$('#recallInput').value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/[,;\n]+/).map(x=>x.trim()).filter(Boolean);const unique=[...new Set(got)];state.memoryScore=Math.round(unique.filter(w=>targetWords.includes(w)).length/targetWords.length*100);show('learning')});
+$('#learningNext').addEventListener('click',()=>show('quiz'));
+$('#quizForm').addEventListener('submit',e=>{e.preventDefault();const answers={q1:'b',q2:'c',q3:'b'};let right=0;for(const [k,v] of Object.entries(answers)){const checked=document.querySelector(`input[name="${k}"]:checked`);if(checked&&checked.value===v)right++}state.learningScore=Math.round(right/3*100);finalIndex=0;finalAnswers={};renderFinalQuestion();show('critical')});
+const finalItems=[
+ {key:'critical',title:'Evaluate the evidence',prompt:'A post claims: “In a survey of 30 students, those who used a chatbot received lower grades. Therefore, AI harms everyone’s memory.” What is the best assessment?',options:[['0','The conclusion is definitive because lower grades were observed.'],['1','This is a signal worth investigating, but the sample and study design are insufficient to establish causation or generalize to everyone.'],['0','The survey proves that chatbots improve memory.']]},
+ {key:'usage',title:'Your study habits',prompt:'How often do you use AI to study or complete tasks?',options:[['0','Never or almost never'],['1','A few times a month'],['2','Several times a week'],['3','Every day']]},
+ {key:'independence',title:'Perceived autonomy',prompt:'If AI were unavailable, how capable would you feel starting a task on your own?',options:[['3','Very capable'],['2','Fairly capable'],['1','Not very capable'],['0','Not at all capable']]}
+];
+let finalIndex=0, finalAnswers={};
+function renderFinalQuestion(){const item=finalItems[finalIndex];$('#criticalCounter').textContent=`Question ${finalIndex+1} of ${finalItems.length}`;$('#criticalProgress').style.width=`${80+(finalIndex+1)/finalItems.length*20}%`;$('#criticalTitle').textContent=item.title;$('#criticalIntro').textContent='Choose an answer to continue. Your answers are processed in this browser.';const host=$('#criticalQuestionHost');host.innerHTML='';const card=document.createElement('div');card.className='card';const q=document.createElement('p');q.className='question';q.textContent=item.prompt;card.appendChild(q);item.options.forEach(([value,label])=>{const lab=document.createElement('label');lab.className='option';const input=document.createElement('input');input.type='radio';input.name=item.key;input.value=value;const span=document.createElement('span');span.textContent=label;input.addEventListener('change',()=>{$('#criticalNext').disabled=false;finalAnswers[item.key]=value});lab.append(input,span);card.appendChild(lab)});host.appendChild(card);$('#criticalNext').textContent=finalIndex===finalItems.length-1?'View my report →':'Next →';$('#criticalNext').disabled=!Object.prototype.hasOwnProperty.call(finalAnswers,item.key)}
+$('#criticalNext').addEventListener('click',()=>{const item=finalItems[finalIndex];if(!Object.prototype.hasOwnProperty.call(finalAnswers,item.key))return;if(finalIndex<finalItems.length-1){finalIndex++;renderFinalQuestion();return}state.criticalScore=Number(finalAnswers.critical)*100;state.usage=Number(finalAnswers.usage);state.independence=Number(finalAnswers.independence);renderResults();show('results')});
+$('#criticalBack').addEventListener('click',()=>{if(confirm('Do you want to leave the assessment? Answers from this session will be lost.'))show('home')});
+function card(title,score,description){return `<div class="result-card"><div class="small">${title}</div><div class="score">${score}%</div><div class="meter"><span style="width:${score}%"></span></div><div class="small">${description}</div></div>`}
+function renderResults(){const dependency=Math.round(((state.usage/3)+(1-state.independence/3))/2*100);$('#resultGrid').innerHTML=card('Word recall',state.memoryScore,'Proportion of words correctly recalled in this task.')+card('Passage comprehension',state.learningScore,'Correct answers to three questions about the passage.')+card('Evidence evaluation',state.criticalScore,'Answer selected in a reasoning scenario.')+card('Exploratory habit indicator',dependency,'Combines reported use frequency and perceived autonomy; it does not measure impairment or clinical dependence.') }
+function csvEscape(x){return '"'+String(x).replace(/"/g,'""')+'"'}
+$('#downloadBtn').addEventListener('click',()=>{const rows=[['field','value'],['session_start',state.startedAt],['word_memory_percent',state.memoryScore],['comprehension_percent',state.learningScore],['critical_thinking_percent',state.criticalScore],['ai_use_frequency_ordinal_0to3',state.usage],['perceived_autonomy_ordinal_0to3',state.independence],['condition','standard_material_demo'],['note','Non-clinical prototype; do not infer impairment or causality']];const csv='\ufeff'+rows.map(r=>r.map(csvEscape).join(',')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='cognia-demo-results.csv';a.click();URL.revokeObjectURL(url)});
+$('#restartBtn').addEventListener('click',()=>{clearInterval(timer);Object.assign(state,{memoryScore:0,learningScore:0,criticalScore:0,usage:null,independence:null,startedAt:null});document.querySelectorAll('input[type=radio],input[type=checkbox]').forEach(x=>x.checked=false);$('#agree').checked=false;$('#consentNext').disabled=true;$('#words').classList.remove('hidden');$('#hideWords').classList.remove('hidden');$('#recallStage').classList.add('hidden');$('#recallInput').value='';show('home')});
+</script>
+</body>
+</html>
